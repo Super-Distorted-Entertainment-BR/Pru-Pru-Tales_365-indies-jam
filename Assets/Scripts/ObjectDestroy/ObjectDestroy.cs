@@ -15,12 +15,18 @@ public class ObjectDestroy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D Obj)
     {
-        c = true;
+        if (Obj.gameObject.tag != "Player")
+        {
+            c = true;
+        }
     }
 
     void OnTriggerStay2D(Collider2D Obj)
     {
-        c = true;
+        if (Obj.gameObject.tag != "Player")
+        {
+            c = true;
+        }
     }
 
 

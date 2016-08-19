@@ -44,6 +44,15 @@ public class slimeController : MonoBehaviour
         {
             isGround = true;
         }
+
+
+        if (other.gameObject.tag == "Coco")
+        {
+            isDeath = true;
+            _animator.SetBool("IsDeath", true);
+        }
+
+       
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -94,20 +103,23 @@ public class slimeController : MonoBehaviour
 
 
             }
-           
+
+
+            _animator.SetBool("Walk", isGround && horizontalForce != 0);
+
+            _animator.SetBool("IsGround", isGround);
+
 
         }
-
-        _animator.SetBool("Walk", isGround && horizontalForce != 0);
-
-        _animator.SetBool("IsGround", isGround);
-
-        _animator.SetBool("IsDeath", isDeath);
-
         
 
         horizontalForce = horizontalForce * Time.deltaTime;
 
         transform.Translate(new Vector3(horizontalForce, 0, transform.position.z));
+    }
+
+    void disable()
+    {
+        this.gameObject.SetActive(false);
     }
 }
