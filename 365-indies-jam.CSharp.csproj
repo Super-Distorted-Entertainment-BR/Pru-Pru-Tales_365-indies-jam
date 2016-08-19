@@ -84,29 +84,30 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_GAME\[Prefabs]\Objects\Fragile Platform\Scripts\FragilePlatform.cs" />
-    <Compile Include="Assets\_GAME\[Prefabs]\Player\Scripits\PombaController.cs" />
-    <Compile Include="Assets\_GAME\[Prefabs]\_GUI\GameGUI\GameGUI.cs" />
-    <Compile Include="Assets\_GAME\[Prefabs]\_GUI\MainMenu\Scripits\MainMenu.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Achievements\Achievements.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Achievements\Teste - Game Jolt API\Teste.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Area2D.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\AudioControl\AudioControl.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\AudioControl\CameraSound.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\AudioControl\SoundManager\PersistentSingleton.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\AudioControl\SoundManager\SoundCamera.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\AudioControl\SoundManager\SoundManager.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Camera\CameraController\CameraController.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Camera\CameraController\LevelLimits.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Camera\CameraController\PlayerBounds.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Configs\GameConfig.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Configs\GameOver.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\Configs\InputConfig.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\LoadScene\LoadScene.cs" />
-    <Compile Include="Assets\_GAME\[Scripts]\ObjectDestroy\ObjectDestroy.cs" />
+    <Compile Include="Assets\Prefabs\Enemies\slime\scripts\slimeController.cs" />
+    <Compile Include="Assets\Prefabs\GUI\GameGUI\GameGUI.cs" />
+    <Compile Include="Assets\Prefabs\GUI\MainMenu\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Prefabs\Objects\Fragile Platform\Scripts\FragilePlatform.cs" />
+    <Compile Include="Assets\Prefabs\Player\Scripts\PombaController.cs" />
+    <Compile Include="Assets\Scripts\Achievements\Achievements.cs" />
+    <Compile Include="Assets\Scripts\Achievements\Teste - Game Jolt API\Teste.cs" />
+    <Compile Include="Assets\Scripts\Area2D.cs" />
+    <Compile Include="Assets\Scripts\AudioControl\AudioControl.cs" />
+    <Compile Include="Assets\Scripts\AudioControl\CameraSound.cs" />
+    <Compile Include="Assets\Scripts\AudioControl\SoundManager\PersistentSingleton.cs" />
+    <Compile Include="Assets\Scripts\AudioControl\SoundManager\SoundCamera.cs" />
+    <Compile Include="Assets\Scripts\AudioControl\SoundManager\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController\LevelLimits.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController\PlayerBounds.cs" />
+    <Compile Include="Assets\Scripts\Configs\GameConfig.cs" />
+    <Compile Include="Assets\Scripts\Configs\GameOver.cs" />
+    <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\LoadScene\LoadScene.cs" />
+    <Compile Include="Assets\Scripts\ObjectDestroy\ObjectDestroy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\_GAME\[Shader]\spriteGlitch.shader" />
+    <None Include="Assets\Shader\spriteGlitch.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

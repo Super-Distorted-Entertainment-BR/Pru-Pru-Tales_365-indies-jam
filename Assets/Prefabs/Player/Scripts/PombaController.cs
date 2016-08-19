@@ -4,21 +4,21 @@ using System.Collections;
 public class PombaController : MonoBehaviour
 {
 
-    public enum State
-    {
-        Idle,
-        Walking,
-        Jumping,
-        Falling,
-        Death,
-        Dying
-    }
+    //public enum State
+    //{
+    //    Idle,
+    //    Walking,
+    //    Jumping,
+    //    Falling,
+    //    Death,
+    //    Dying
+    //}
 
 
     public int hp = 3;
     public int estamina = 100;
 
-    public State state;
+    //public State state;
 
     public float gravity = 0.3f;
     public float jumpForce = 1;
@@ -43,7 +43,7 @@ public class PombaController : MonoBehaviour
     void Start()
     {
 
-        state = State.Idle;
+         //state = State.Idle;
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _animator = gameObject.GetComponent<Animator>();
 
@@ -55,7 +55,7 @@ public class PombaController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag != "Player")
+        if (other.gameObject.tag != "Enemy")
         {
             isGround = true;
         }
@@ -68,15 +68,15 @@ public class PombaController : MonoBehaviour
             damagedTime = 1;
             isDamaged = true;
             
-            _rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/2));
+            //_rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/4));
         }
     }
 
-    void OnCollisionStay2D(Collision2D other)
+        void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag != "Enemy")
         {
-            
+            isGround = true;
         }
     }
     
