@@ -22,6 +22,21 @@ public class slimeController : MonoBehaviour
 
     public AudioClip _jumpClip;
 
+
+    public AudioClip[] walkClip;
+    
+ 
+    void playWalkClip()
+    {
+        if (walkClip != null)
+        {
+            GameConfig.soundManager.PlaySound(walkClip[Random.Range(0, walkClip.Length - 1)], gameObject.transform.position);
+        }
+    }
+    
+
+
+
     void Start()
     {
 
@@ -102,7 +117,7 @@ public class slimeController : MonoBehaviour
 
                     _animator.SetTrigger("Jump");
 
-                    GameConfig.soundManager.PlaySound(_jumpClip, gameObject.transform.position);
+                   // GameConfig.soundManager.PlaySound(_jumpClip, gameObject.transform.position);
 
                 }
                 else

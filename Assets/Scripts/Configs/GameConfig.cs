@@ -14,7 +14,7 @@ public static class GameConfig {
 
     // Controle de volume de som
     public static SoundManager soundManager  = new SoundManager();//gerenciador de aldio
-
+    
     // Variaveis do jogador
     public static int score;//pontuação da partifa atual
     public static int highScore;//pontuação maxima alcançada

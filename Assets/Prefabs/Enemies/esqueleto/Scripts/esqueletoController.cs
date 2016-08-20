@@ -22,6 +22,37 @@ public class esqueletoController : MonoBehaviour {
 
     public bool stop = false;
 
+    public AudioClip[] AtacckClip;
+
+    public AudioClip walkClip;
+
+    public AudioClip tomboClip;
+
+    void playTomboClip()
+    {
+        if (walkClip != null)
+        {
+            GameConfig.soundManager.PlaySound(tomboClip, gameObject.transform.position);
+        }
+    }
+
+    void playWalkClip()
+    {
+        if (walkClip != null)
+        {
+            GameConfig.soundManager.PlaySound(walkClip, gameObject.transform.position);
+        }
+    }
+
+    void playAtacckClip()
+    {
+        if (AtacckClip != null)
+        {
+            GameConfig.soundManager.PlaySound(AtacckClip[Random.Range(0, AtacckClip.Length - 1)], gameObject.transform.position);
+        }
+    }
+
+
     void Start () {
 
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();

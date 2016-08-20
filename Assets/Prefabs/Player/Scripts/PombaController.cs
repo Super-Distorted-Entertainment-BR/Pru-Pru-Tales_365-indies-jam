@@ -76,7 +76,7 @@ public class PombaController : MonoBehaviour
             damagedTime = invulnerabilityTime;
             isDamaged = true;
             
-            _rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/4));
+           // _rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/4));
         }
     }
 
@@ -157,7 +157,7 @@ public class PombaController : MonoBehaviour
 			                                    player.currentStamina + player.staminaRecoveryRate,
 			                                    player.maxStamina);
 
-			Debug.Log("Recovering stamina... " + player.currentStamina);
+			//Debug.Log("Recovering stamina... " + player.currentStamina);
 		}
 
         horizontalForce = horizontalForce * Time.deltaTime;
