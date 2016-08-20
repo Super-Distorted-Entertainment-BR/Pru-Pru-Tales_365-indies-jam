@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public class Player {
+	public int maxStamina = 100;
+	public int currentStamina = 100;
+	public int staminaRecoveryRate = 1;
+}
+
 public class PombaController : MonoBehaviour
 {
     //public enum State
@@ -40,6 +46,8 @@ public class PombaController : MonoBehaviour
 
     public AudioClip _jumpClip;
 
+	private Player player;
+
     void Start()
     {
          //state = State.Idle;
@@ -49,6 +57,7 @@ public class PombaController : MonoBehaviour
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         _inputConfig = new InputConfig();
+		player = new Player();
     }
 
 
@@ -93,7 +102,7 @@ public class PombaController : MonoBehaviour
     {
          Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), isDamaged);
       
-        if (_inputConfig.jump())
+		if (_inputConfig.jump() && player.currentStamina >= 20)
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             //  Debug.Log("Jump");
@@ -101,6 +110,8 @@ public class PombaController : MonoBehaviour
             _animator.SetTrigger("Jump");
 
             GameConfig.soundManager.PlaySound(_jumpClip, gameObject.transform.position);
+			player.currentStamina -= 20;
+			Debug.Log("Jumped, stamina: " + player.currentStamina);
         }
 
         if (_inputConfig.action())
@@ -139,6 +150,15 @@ public class PombaController : MonoBehaviour
         _animator.SetBool("Walk", isGround && horizontalForce != 0);
 
         _animator.SetBool("IsGround", isGround);
+
+
+		if (isGround && (player.currentStamina < player.maxStamina)) {
+			player.currentStamina = Mathf.Clamp(player.currentStamina,
+			                                    player.currentStamina + player.staminaRecoveryRate,
+			                                    player.maxStamina);
+
+			Debug.Log("Recovering stamina... " + player.currentStamina);
+		}
 
         horizontalForce = horizontalForce * Time.deltaTime;
  
