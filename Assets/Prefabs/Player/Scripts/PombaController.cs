@@ -1,16 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player {
-	public int maxStamina = 100;
-	public int currentStamina = 100;
-	public int staminaRecoveryRate = 1;
-
-	public int maxAmmo = 5;
-	public int currentAmmo = 5;
-	public int ammoRecoveryPerFood = 1;
-}
-
 public class PombaController : MonoBehaviour
 {
     //public enum State
@@ -23,8 +13,16 @@ public class PombaController : MonoBehaviour
     //    Dying
     //}
 
+	// Player Attributes
+	public int maxStamina = 100;
+	public int currentStamina = 100;
+	public int staminaRecoveryRate = 1;
+
+	public int maxAmmo = 5;
+	public int currentAmmo = 5;
+	public int ammoRecoveryPerFood = 1;
+
     public int hp = 3;
-    public int estamina = 100;
 
     //public State state;
 
@@ -50,8 +48,6 @@ public class PombaController : MonoBehaviour
 
     public AudioClip _jumpClip;
 
-	private Player player;
-
     void Start()
     {
          //state = State.Idle;
@@ -61,7 +57,6 @@ public class PombaController : MonoBehaviour
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         _inputConfig = new InputConfig();
-		player = new Player();
     }
 
 
@@ -86,9 +81,9 @@ public class PombaController : MonoBehaviour
 
 		if (other.gameObject.tag == "ComidaPao")
 		{
-			player.currentAmmo = Mathf.Min(player.currentAmmo + player.ammoRecoveryPerFood, player.maxAmmo);
+			currentAmmo = Mathf.Min(currentAmmo + ammoRecoveryPerFood, maxAmmo);
 			Destroy(other.gameObject);
-			Debug.Log("Recovered ammo: " + player.currentAmmo);
+			Debug.Log("Recovered ammo: " + currentAmmo);
 		}
     }
 
@@ -114,7 +109,7 @@ public class PombaController : MonoBehaviour
     {
          Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), isDamaged);
       
-		if (_inputConfig.jump() && player.currentStamina >= 20)
+		if (_inputConfig.jump() && currentStamina >= 20)
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
             //  Debug.Log("Jump");
@@ -122,14 +117,14 @@ public class PombaController : MonoBehaviour
             _animator.SetTrigger("Jump");
 
             GameConfig.soundManager.PlaySound(_jumpClip, gameObject.transform.position);
-			player.currentStamina -= 20;
-			Debug.Log("Jumped, stamina: " + player.currentStamina);
+			currentStamina -= 20;
+			Debug.Log("Jumped, stamina: " + currentStamina);
         }
 
-		if (_inputConfig.action() && player.currentAmmo > 0)
+		if (_inputConfig.action() && currentAmmo > 0)
         {
-			player.currentAmmo -= 1;
-			Debug.Log("Shitting, ammo:" + player.currentAmmo);
+			currentAmmo -= 1;
+			Debug.Log("Shitting, ammo:" + currentAmmo);
         }
 
         if (_inputConfig.walkLeft())
@@ -165,10 +160,10 @@ public class PombaController : MonoBehaviour
         _animator.SetBool("IsGround", isGround);
 
 
-		if (isGround && (player.currentStamina < player.maxStamina)) {
-			player.currentStamina = Mathf.Min(player.currentStamina + player.staminaRecoveryRate, player.maxStamina);
+		if (isGround && (currentStamina < maxStamina)) {
+			currentStamina = Mathf.Min(currentStamina + staminaRecoveryRate, maxStamina);
 
-			Debug.Log("Recovering stamina... " + player.currentStamina);
+			Debug.Log("Recovering stamina... " + currentStamina);
 		}
 
         horizontalForce = horizontalForce * Time.deltaTime;
