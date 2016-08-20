@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PombaController : MonoBehaviour
 {
-
     //public enum State
     //{
     //    Idle,
@@ -13,7 +12,6 @@ public class PombaController : MonoBehaviour
     //    Death,
     //    Dying
     //}
-
 
     public int hp = 3;
     public int estamina = 100;
@@ -29,6 +27,7 @@ public class PombaController : MonoBehaviour
     public float invulnerabilityTime = 1;
 
     private float damagedTime = 0;
+	private float blinkTime = 0;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -43,7 +42,6 @@ public class PombaController : MonoBehaviour
 
     void Start()
     {
-
          //state = State.Idle;
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
         _animator = gameObject.GetComponent<Animator>();
@@ -73,7 +71,7 @@ public class PombaController : MonoBehaviour
         }
     }
 
-        void OnCollisionStay2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag != "Enemy")
         {
@@ -93,8 +91,6 @@ public class PombaController : MonoBehaviour
 
     void Update()
     {
-
-         //
          Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), isDamaged);
       
         if (_inputConfig.jump())
@@ -124,7 +120,6 @@ public class PombaController : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-
         if (damagedTime > 0)
         {
             damagedTime = damagedTime - Time.deltaTime;
@@ -141,8 +136,6 @@ public class PombaController : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = true;
         }
 
-
-
         _animator.SetBool("Walk", isGround && horizontalForce != 0);
 
         _animator.SetBool("IsGround", isGround);
@@ -152,12 +145,8 @@ public class PombaController : MonoBehaviour
         transform.Translate(new Vector3(horizontalForce, 0, transform.position.z));
     }
 
-
-    private float blinkTime=0;
-
     void blink()
     {
-
         if (blinkTime >= 0.1f)
         {
             blinkTime = 0;
@@ -172,6 +161,5 @@ public class PombaController : MonoBehaviour
 
         blinkTime = blinkTime + Time.deltaTime;
     }
-
 
 }
