@@ -20,7 +20,7 @@ public class slimeController : MonoBehaviour
     public bool isGround = false;
     public bool isDeath = false;
 
-    public AudioClip _jumpClip;
+    //public AudioClip _jumpClip;
 
 
     public AudioClip[] walkClip;

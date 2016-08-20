@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Configs\GameConfig.cs" />
     <Compile Include="Assets\Scripts\Configs\GameOver.cs" />
     <Compile Include="Assets\Scripts\Configs\InputConfig.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LoadScene\LoadScene.cs" />
     <Compile Include="Assets\Scripts\ObjectDestroy\ObjectDestroy.cs" />
   </ItemGroup>
