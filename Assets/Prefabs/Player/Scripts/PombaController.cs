@@ -22,7 +22,7 @@ public class PombaController : MonoBehaviour
 	public int currentAmmo = 5;
 	public int ammoRecoveryPerFood = 1;
 
-    public int hp = 3;
+    public int lives = 3;
 
     //public State state;
 
@@ -72,7 +72,12 @@ public class PombaController : MonoBehaviour
         {
             _animator.SetTrigger("IsDamaged"); 
             
-            hp--;
+            lives--;
+			if (lives == 0) {
+				Debug.Log("Player died!");
+				GameConfig.isDead = true;
+			}
+
             damagedTime = invulnerabilityTime;
             isDamaged = true;
             

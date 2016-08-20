@@ -19,14 +19,14 @@ public static class GameConfig {
     public static int score;//pontuação da partifa atual
     public static int highScore;//pontuação maxima alcançada
 
-    public static int playerDeaths;//quantas vezes o jogador moreu
+    public static int playerDeaths = 0;//quantas vezes o jogador moreu
 
-    public static int enemiesKills;//quantos inimigos ja foram derotados
+    public static int enemiesKills = 0;//quantos inimigos ja foram derotados
     public static int initializedSessions;// quantas vezes o jogador logou no jogo
 
-    public static bool isDeth;
+	public static bool isDead = false;
 
-    public static bool isPaused;
+    public static bool isPaused = false;
     
 
     // Game Jolt API ===================================
