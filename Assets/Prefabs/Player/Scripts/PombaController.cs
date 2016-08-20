@@ -166,9 +166,7 @@ public class PombaController : MonoBehaviour
 
 
 		if (isGround && (player.currentStamina < player.maxStamina)) {
-			player.currentStamina = Mathf.Clamp(player.currentStamina,
-			                                    player.currentStamina + player.staminaRecoveryRate,
-			                                    player.maxAmmo);
+			player.currentStamina = Mathf.Min(player.currentStamina + player.staminaRecoveryRate, player.maxStamina);
 
 			Debug.Log("Recovering stamina... " + player.currentStamina);
 		}
