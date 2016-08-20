@@ -24,7 +24,7 @@ public static class GameConfig {
     public static int enemiesKills = 0;//quantos inimigos ja foram derotados
     public static int initializedSessions;// quantas vezes o jogador logou no jogo
 
-	public static bool isDead = false;
+	public static bool playerIsDead = false;
 
     public static bool isPaused = false;
     

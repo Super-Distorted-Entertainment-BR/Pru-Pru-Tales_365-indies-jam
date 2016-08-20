@@ -75,7 +75,7 @@ public class PombaController : MonoBehaviour
             lives--;
 			if (lives == 0) {
 				Debug.Log("Player died!");
-				GameConfig.isDead = true;
+				GameConfig.playerIsDead = true;
 			}
 
             damagedTime = invulnerabilityTime;
