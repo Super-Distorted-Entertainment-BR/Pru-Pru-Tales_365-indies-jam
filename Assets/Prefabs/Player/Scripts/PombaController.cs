@@ -26,8 +26,9 @@ public class PombaController : MonoBehaviour
 
     public bool isGround = false;
     public bool isDamaged = false;
+    public float invulnerabilityTime = 1;
 
-    public float damagedTime = 0;
+    private float damagedTime = 0;
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -65,10 +66,10 @@ public class PombaController : MonoBehaviour
             _animator.SetTrigger("IsDamaged"); 
             
             hp--;
-            damagedTime = 1;
+            damagedTime = invulnerabilityTime;
             isDamaged = true;
             
-            //_rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/4));
+            _rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/4));
         }
     }
 
@@ -93,7 +94,9 @@ public class PombaController : MonoBehaviour
     void Update()
     {
 
-
+         //
+         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), isDamaged);
+      
         if (_inputConfig.jump())
         {
             _rigidbody.AddForce(new Vector2(0, jumpForce));
@@ -145,7 +148,7 @@ public class PombaController : MonoBehaviour
         _animator.SetBool("IsGround", isGround);
 
         horizontalForce = horizontalForce * Time.deltaTime;
-
+ 
         transform.Translate(new Vector3(horizontalForce, 0, transform.position.z));
     }
 

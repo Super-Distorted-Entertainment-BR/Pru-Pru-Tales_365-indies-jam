@@ -85,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Prefabs\Enemies\esqueleto\Scripts\esqueletoController.cs" />
+    <Compile Include="Assets\Prefabs\Enemies\orc\Scripts\orcController.cs" />
     <Compile Include="Assets\Prefabs\Enemies\slime\scripts\slimeController.cs" />
     <Compile Include="Assets\Prefabs\GUI\GameGUI\GameGUI.cs" />
     <Compile Include="Assets\Prefabs\GUI\MainMenu\Scripts\MainMenu.cs" />

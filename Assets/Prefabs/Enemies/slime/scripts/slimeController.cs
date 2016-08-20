@@ -18,7 +18,6 @@ public class slimeController : MonoBehaviour
     private float verticalForce = 0;
 
     public bool isGround = false;
-    public bool isDamaged = false;
     public bool isDeath = false;
 
     public AudioClip _jumpClip;
@@ -67,13 +66,23 @@ public class slimeController : MonoBehaviour
     {
         isGround = false;
     }
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag != "Enemy" && other.gameObject.tag != "Player")
+        {
+            isGround = false;
+        }
+    }
+
     
     void Update()
     {
         if (_target != null && isDeath == false)
         {
             
-            if (Mathf.Abs(transform.position.x - _target.transform.position.x) <= rangeOfVision && Mathf.Abs(transform.position.y - _target.transform.position.y) < rangeOfVision / 2)
+            if (Mathf.Abs(transform.position.x - _target.transform.position.x) <= rangeOfVision && Mathf.Abs(transform.position.y - _target.transform.position.y) < rangeOfVision / 2 && transform.position.y- rangeOfVision / 4 <= _target.transform.position.y) 
             {
                 
                 //jump
