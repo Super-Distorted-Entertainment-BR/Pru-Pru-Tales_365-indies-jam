@@ -25,6 +25,8 @@ public class PombaController : MonoBehaviour
     public int lives = 3;
 
     //public State state;
+	public GameObject shit;
+	public Transform shitSpawner;
 
     public float gravity = 0.3f;
     public float jumpForce = 1;
@@ -57,6 +59,7 @@ public class PombaController : MonoBehaviour
         _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         _inputConfig = new InputConfig();
+		shitSpawner = transform.Find("Shit Spawn");
     }
 
 
@@ -130,6 +133,7 @@ public class PombaController : MonoBehaviour
         {
 			currentAmmo -= 1;
 			Debug.Log("Shitting, ammo:" + currentAmmo);
+			Instantiate(shit, shitSpawner.transform.position, Quaternion.identity);
         }
 
         if (_inputConfig.walkLeft())
