@@ -5,6 +5,10 @@ public class Player {
 	public int maxStamina = 100;
 	public int currentStamina = 100;
 	public int staminaRecoveryRate = 1;
+
+	public int maxAmmo = 5;
+	public int currentAmmo = 5;
+	public int ammoRecoveryPerFood = 1;
 }
 
 public class PombaController : MonoBehaviour
@@ -63,6 +67,7 @@ public class PombaController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+//		Debug.Log("OnCollisionEnter2D: " + other.gameObject.tag);
         if (other.gameObject.tag != "Enemy")
         {
             isGround = true;
@@ -78,6 +83,13 @@ public class PombaController : MonoBehaviour
             
             _rigidbody.AddForce(new Vector2(-(gameObject.transform.localScale.x * jumpForce/2), jumpForce/4));
         }
+
+		if (other.gameObject.tag == "ComidaPao")
+		{
+			player.currentAmmo = Mathf.Min(player.currentAmmo + player.ammoRecoveryPerFood, player.maxAmmo);
+			Destroy(other.gameObject);
+			Debug.Log("Recovered ammo: " + player.currentAmmo);
+		}
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -114,9 +126,10 @@ public class PombaController : MonoBehaviour
 			Debug.Log("Jumped, stamina: " + player.currentStamina);
         }
 
-        if (_inputConfig.action())
+		if (_inputConfig.action() && player.currentAmmo > 0)
         {
-            Debug.Log("B...");
+			player.currentAmmo -= 1;
+			Debug.Log("Shitting, ammo:" + player.currentAmmo);
         }
 
         if (_inputConfig.walkLeft())
@@ -155,7 +168,7 @@ public class PombaController : MonoBehaviour
 		if (isGround && (player.currentStamina < player.maxStamina)) {
 			player.currentStamina = Mathf.Clamp(player.currentStamina,
 			                                    player.currentStamina + player.staminaRecoveryRate,
-			                                    player.maxStamina);
+			                                    player.maxAmmo);
 
 			Debug.Log("Recovering stamina... " + player.currentStamina);
 		}
