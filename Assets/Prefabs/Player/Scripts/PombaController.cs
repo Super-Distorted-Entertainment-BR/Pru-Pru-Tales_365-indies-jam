@@ -129,7 +129,7 @@ public class PombaController : MonoBehaviour
 			Debug.Log("Jumped, stamina: " + currentStamina);
         }
 
-		if (_inputConfig.action() && currentAmmo > 0)
+		if (_inputConfig.action() && currentAmmo > 0 && !isGround)
         {
 			currentAmmo -= 1;
 			Debug.Log("Shitting, ammo:" + currentAmmo);
