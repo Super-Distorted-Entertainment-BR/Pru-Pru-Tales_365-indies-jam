@@ -23,9 +23,9 @@ public class ShitController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		if (other.gameObject.tag != "Enemy") {
-			Debug.Log("Shit fell in the floor");
-			anim.SetBool("IsInTheGround", true);
+		anim.SetBool("IsInTheGround", true);
+		if (other.gameObject.tag == "Enemy") {
+			Destroy(gameObject, 0.5f);
 		}
 	}
 
