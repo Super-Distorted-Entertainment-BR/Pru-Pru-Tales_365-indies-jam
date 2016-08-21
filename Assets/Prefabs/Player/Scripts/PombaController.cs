@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class PombaController : MonoBehaviour
@@ -189,6 +190,12 @@ public class PombaController : MonoBehaviour
 		ammoText.text = "Ammo: " + currentAmmo;
 		staminaText.text = "Stamina: " + currentStamina;
 		livesText.text = "Lives: " + lives;
+
+		if (GameConfig.playerIsDead == true)
+		{
+			GameConfig.playerIsDead = false;
+			SceneManager.LoadScene("4 - Game Over");
+		}
     }
 
     void blink()
