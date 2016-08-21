@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class PombaController : MonoBehaviour
 {
@@ -50,6 +53,11 @@ public class PombaController : MonoBehaviour
 
     public AudioClip _jumpClip;
 
+	// Ui components
+	public Text livesText;
+	public Text staminaText;
+	public Text ammoText;
+		
     void Start()
     {
          //state = State.Idle;
@@ -178,6 +186,16 @@ public class PombaController : MonoBehaviour
         horizontalForce = horizontalForce * Time.deltaTime;
  
         transform.Translate(new Vector3(horizontalForce, 0, transform.position.z));
+
+		ammoText.text = "Ammo: " + currentAmmo;
+		staminaText.text = "Stamina: " + currentStamina;
+		livesText.text = "Lives: " + lives;
+
+		if (GameConfig.playerIsDead == true)
+		{
+			GameConfig.playerIsDead = false;
+			SceneManager.LoadScene("4 - Game Over");
+		}
     }
 
     void blink()
