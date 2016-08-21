@@ -21,7 +21,7 @@ public class LoadScene : MonoBehaviour {
        
     }
 
-    void nextLevel()
+    public void nextLevel()
     {
         SceneManager.LoadScene(scene);
     }
