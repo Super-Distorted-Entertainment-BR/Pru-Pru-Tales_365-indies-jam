@@ -18,7 +18,7 @@ public class PombaController : MonoBehaviour
 	public int currentStamina = 100;
 	public int staminaRecoveryRate = 1;
 
-	public int maxAmmo = 5;
+	public int maxAmmo = 15;
 	public int currentAmmo = 5;
 	public int ammoRecoveryPerFood = 1;
 
