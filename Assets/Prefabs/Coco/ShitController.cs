@@ -9,21 +9,14 @@ public class ShitController : MonoBehaviour {
 	}
 
 	void Start () {
-		GameObject player = GameObject.FindWithTag("Player");
-		if (player.GetComponent<PombaController>().isGround)
-		{
-			Debug.Log("ENTROU NO IF");
-			anim.SetBool("IsInTheGround", true);
-//			anim.SetTrigger("StraightToGround");
-		}
-	}
-
-//		if (HasLight) {
-//			anim.SetTrigger ("ShortcutLit");
-//			anim.SetBool ("Lit", true);
+//		GameObject player = GameObject.FindWithTag("Player");
+//		if (player.GetComponent<PombaController>().isGround)
+//		{
+//			Debug.Log("ENTROU NO IF");
+//			anim.SetBool("IsInTheGround", true);
+////			anim.SetTrigger("StraightToGround");
 //		}
-
-
+	}
 
 	void Update () {
 	
