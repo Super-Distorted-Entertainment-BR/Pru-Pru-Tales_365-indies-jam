@@ -134,13 +134,11 @@ public class PombaController : MonoBehaviour
 
             GameConfig.soundManager.PlaySound(_jumpClip, gameObject.transform.position);
 			currentStamina -= 20;
-			Debug.Log("Jumped, stamina: " + currentStamina);
         }
 
 		if (_inputConfig.action() && currentAmmo > 0 && !isGround)
         {
 			currentAmmo -= 1;
-			Debug.Log("Shitting, ammo:" + currentAmmo);
 			Instantiate(shit, shitSpawner.transform.position, Quaternion.identity);
         }
 
@@ -179,8 +177,6 @@ public class PombaController : MonoBehaviour
 
 		if (isGround && (currentStamina < maxStamina)) {
 			currentStamina = Mathf.Min(currentStamina + staminaRecoveryRate, maxStamina);
-
-			Debug.Log("Recovering stamina... " + currentStamina);
 		}
 
         horizontalForce = horizontalForce * Time.deltaTime;
