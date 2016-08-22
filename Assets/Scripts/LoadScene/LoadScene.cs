@@ -13,11 +13,6 @@ public class LoadScene : MonoBehaviour {
 	}
 	
 	void Update () {
-
-        if (inputConfig.action())
-        {
-            SceneManager.LoadScene(scene);
-        }
        
     }
 
