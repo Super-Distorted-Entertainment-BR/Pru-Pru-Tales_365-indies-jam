@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class MagoController : MonoBehaviour {
@@ -49,4 +50,9 @@ public class MagoController : MonoBehaviour {
 		}
 
 	}
+
+    void loadEnd()
+    {
+        SceneManager.LoadScene("6 - End"); 
+    }
 }
