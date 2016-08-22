@@ -12,7 +12,10 @@ public class MagoController : MonoBehaviour {
 	public float fireRate = 2.0f;
 	private float nextFire = 0.0f;
 
-	void Start () {
+    public float fireForce = 2;
+
+
+    void Start () {
 		
 	}
 
@@ -26,7 +29,7 @@ public class MagoController : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			playerPosition = player.transform.position;
 			attack = (GameObject)Instantiate(fireBall, transform.position, Quaternion.identity);
-			attack.GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 0));
+			attack.GetComponent<Rigidbody2D>().AddForce(new Vector2(fireForce, 0));
 
 			Debug.Log("FIRING BALL!");
 		}

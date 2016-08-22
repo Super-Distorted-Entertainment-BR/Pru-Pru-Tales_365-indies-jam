@@ -90,6 +90,8 @@
     <Compile Include="Assets\Prefabs\Enemies\slime\scripts\slimeController.cs" />
     <Compile Include="Assets\Prefabs\GUI\GameGUI\GameGUI.cs" />
     <Compile Include="Assets\Prefabs\GUI\MainMenu\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Prefabs\Mago\MagoController.cs" />
+    <Compile Include="Assets\Prefabs\Mago\MagoSensorController.cs" />
     <Compile Include="Assets\Prefabs\Objects\Fragile Platform\Scripts\FragilePlatform.cs" />
     <Compile Include="Assets\Prefabs\Player\Scripts\PombaController.cs" />
     <Compile Include="Assets\Scripts\Achievements\Achievements.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Assets\Scripts\GameStart.cs" />
     <Compile Include="Assets\Scripts\LoadScene\LoadScene.cs" />
     <Compile Include="Assets\Scripts\ObjectDestroy\ObjectDestroy.cs" />
+    <Compile Include="Assets\Scripts\PortaoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shader\spriteGlitch.shader" />
