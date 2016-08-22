@@ -7,9 +7,9 @@ public class InputConfig
 
     public bool walkLeft()
     {
-        if(Input.GetKey(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-        return true;
+        	return true;
         }
 
         return false;
@@ -17,7 +17,7 @@ public class InputConfig
 
     public bool walkRight()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             return true;
         }
@@ -27,7 +27,7 @@ public class InputConfig
 
     public bool walkUp()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             return true;
         }
@@ -37,7 +37,7 @@ public class InputConfig
 
     public bool walkDown()
     {
-        if (Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             return true;
         }
@@ -47,7 +47,7 @@ public class InputConfig
     
     public bool Left()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             return true;
         }
@@ -57,7 +57,7 @@ public class InputConfig
 
     public bool Right()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+		if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             return true;
         }
@@ -67,7 +67,7 @@ public class InputConfig
 
     public bool Up()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             return true;
         }
@@ -77,7 +77,7 @@ public class InputConfig
 
     public bool Down()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             return true;
         }
@@ -88,7 +88,7 @@ public class InputConfig
 
     public bool action()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.Space))
         {
             return true;
         }
@@ -98,7 +98,7 @@ public class InputConfig
 
     public bool jump()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+		if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             return true;
         }
